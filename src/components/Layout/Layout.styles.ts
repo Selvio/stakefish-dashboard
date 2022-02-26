@@ -17,3 +17,10 @@ export const LogoContainer = styled.div`
 export const Logo = styled.img`
   width: ${rem("217px")};
 `;
+
+export const SpinnerContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: ${rem("350px")};
+  justify-content: center;
+`;
