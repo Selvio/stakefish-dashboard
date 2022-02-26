@@ -18,7 +18,7 @@ const variables = {
   fontWeightBase: "400",
 
   headingsFontFamily: "OpenSans",
-  headingsFontWeight: "300",
+  headingsFontWeight: "700",
   headingsLineHeight: "1.2",
 };
 

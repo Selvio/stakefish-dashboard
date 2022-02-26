@@ -34,7 +34,6 @@ export default css`
     font-family: ${({ theme }) => theme.variables.fontFamilyBase};
     font-weight: ${({ theme }) => theme.variables.fontWeightBase};
     margin: 0;
-    overflow: hidden;
   }
 
   input,
@@ -65,6 +64,13 @@ export default css`
     max-width: 100%;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
   h1,
   h2,
   h3,
@@ -78,7 +84,6 @@ export default css`
     line-height: ${({ theme }) => theme.variables.headingsLineHeight};
     margin-top: 0;
     text-rendering: optimizeLegibility;
-    text-transform: uppercase;
   }
 
   h1,
