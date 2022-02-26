@@ -4,8 +4,8 @@ import colors from "./colors";
 import mediaQueries from "./mediaQueries";
 
 const variables = {
-  bodyBg: colors.white,
-  textColor: colors.black,
+  bodyBg: colors.woodsmoke,
+  textColor: colors.athensGray,
   btnFontWeight: "400",
 
   baseSpacingUnit: rem("24px"),
