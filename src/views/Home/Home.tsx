@@ -1,15 +1,13 @@
-import { FC } from "react";
-import { useQuery } from "react-query";
-
-import { getExchanges } from "../../api/exchanges";
-
 import Spinner from "../../components/Spinner";
+
+import useHome from "./useHome";
 
 import {
   Anchor,
   Buttons,
   ExchangeLogo,
   Info,
+  InnerContainer,
   Name,
   SpinnerContainer,
   StyledLink,
@@ -18,12 +16,9 @@ import {
   Title,
 } from "./Home.styles";
 
-const Home: FC = () => {
-  const {
-    data: exchanges,
-    error,
-    isLoading,
-  } = useQuery("exchangesData", () => getExchanges());
+const Home = () => {
+  const { exchanges, error, isLoading, scrollIndicatorsState, containerRef } =
+    useHome();
 
   if (error) return <div>An error has occurred 😵</div>;
 
@@ -40,41 +35,45 @@ const Home: FC = () => {
   return (
     <div>
       <Title>Exchanges</Title>
-      <TableContainer>
-        <Table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Country</th>
-              <th>Trust Rank</th>
-              <th>Links</th>
-            </tr>
-          </thead>
-          <tbody>
-            {exchanges.map(
-              ({ id, country, image, name, url, trust_score_rank }) => (
-                <tr key={id}>
-                  <td>
-                    <Info>
-                      <ExchangeLogo src={image} alt={name} />
-                      <Name>{name}</Name>
-                    </Info>
-                  </td>
-                  <td>{country}</td>
-                  <td>{trust_score_rank}</td>
-                  <td>
-                    <Buttons>
-                      <Anchor href={url} target="_blank" rel="noreferrer">
-                        Official Website
-                      </Anchor>
-                      <StyledLink to={`/exchanges/${id}`}>Details</StyledLink>
-                    </Buttons>
-                  </td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </Table>
+      <TableContainer scrollIndicatorsState={scrollIndicatorsState}>
+        <InnerContainer ref={containerRef}>
+          <Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Trust Rank</th>
+                <th>Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              {exchanges.map(
+                ({ id, country, image, name, url, trust_score_rank }) => (
+                  <tr key={id}>
+                    <td>
+                      <Info>
+                        <ExchangeLogo src={image} alt={name} />
+                        <Name>{name}</Name>
+                      </Info>
+                    </td>
+                    <td>{country}</td>
+                    <td>{trust_score_rank}</td>
+                    <td>
+                      <Buttons>
+                        <StyledLink to={`/exchanges/${id}`}>Details</StyledLink>
+                        {url && (
+                          <Anchor href={url} target="_blank" rel="noreferrer">
+                            Official Website
+                          </Anchor>
+                        )}
+                      </Buttons>
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </Table>
+        </InnerContainer>
       </TableContainer>
     </div>
   );

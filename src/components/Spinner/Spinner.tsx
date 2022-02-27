@@ -1,8 +1,6 @@
-import { FC } from "react";
-
 import { StyledSpinner } from "./Spinner.styles";
 
-const Spinner: FC = () => (
+const Spinner = () => (
   <StyledSpinner data-testid="spinner">Loading...</StyledSpinner>
 );
 

@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { ChevronLeft, Facebook, Twitter, Reddit } from "react-bootstrap-icons";
@@ -20,7 +19,7 @@ import {
   Title,
 } from "./ExchangeDetails.styles";
 
-const ExchangeDetails: FC = () => {
+const ExchangeDetails = () => {
   const { exchangeId = "" } = useParams();
   const {
     data: exchange,

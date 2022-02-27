@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "../Layout";
@@ -6,7 +5,7 @@ import Layout from "../Layout";
 import ExchangeDetails from "../../views/ExchangeDetails";
 import Home from "../../views/Home";
 
-const App: FC = () => (
+const App = () => (
   <BrowserRouter>
     <Routes>
       <Route element={<Layout />}>

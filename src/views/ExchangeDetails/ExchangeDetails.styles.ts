@@ -74,8 +74,9 @@ export const SocialMediaLinks = styled.div`
 `;
 
 export const SocialMediaLink = styled.a`
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: ${rem("20px")};
 
   &:hover {
     color: ${({ theme }) => theme.colors.lightningYellow};
@@ -83,6 +84,10 @@ export const SocialMediaLink = styled.a`
 
   &:not(:last-child) {
     margin-right: ${rem("12px")};
+  }
+
+  @media ${({ theme }) => theme.mediaQueries.small} {
+    font-size: ${rem("16px")};
   }
 `;
 
