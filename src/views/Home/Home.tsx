@@ -20,7 +20,7 @@ const Home = () => {
   const { exchanges, error, isLoading, scrollIndicatorsState, containerRef } =
     useHome();
 
-  if (error) return <div>An error has occurred 😵</div>;
+  if (error) return <div>An error has occurred</div>;
 
   if (isLoading) {
     return (

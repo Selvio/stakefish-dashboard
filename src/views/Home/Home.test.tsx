@@ -10,7 +10,9 @@ import { BASE_URL } from "../../api/exchanges";
 
 import Home from "./index";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false } },
+});
 
 const renderComponent = () =>
   render(
@@ -40,6 +42,14 @@ describe("<Home />", () => {
     expect(await screen.findByText("Exchanges")).toBeVisible();
     expect(await screen.findByText("Binance")).toBeVisible();
     expect(await screen.findByText("OKX")).toBeVisible();
+  });
+
+  it("Should display error message when api call fails", async () => {
+    server.use(
+      rest.get(`${BASE_URL}/exchanges`, (req, res, ctx) => res(ctx.status(404)))
+    );
+    renderComponent();
+    expect(await screen.findByText("An error has occurred")).toBeVisible();
   });
 
   it("Should render 'No data available' message when exchanges list is empty", async () => {

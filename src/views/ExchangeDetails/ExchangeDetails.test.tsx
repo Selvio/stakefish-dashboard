@@ -7,7 +7,9 @@ import { theme } from "../../styles";
 
 import ExchangeDetails from "./index";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false } },
+});
 
 const renderComponent = () =>
   render(
@@ -15,10 +17,7 @@ const renderComponent = () =>
       <ThemeProvider theme={theme}>
         <MemoryRouter initialEntries={["/exchanges/binance"]}>
           <Routes>
-            <Route
-              path="exchanges/:exchangeId"
-              element={<ExchangeDetails />}
-             />
+            <Route path="exchanges/:exchangeId" element={<ExchangeDetails />} />
           </Routes>
         </MemoryRouter>
       </ThemeProvider>

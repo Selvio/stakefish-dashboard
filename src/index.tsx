@@ -8,7 +8,14 @@ import App from "./components/App";
 import { GlobalStyles, theme } from "./styles";
 import reportWebVitals from "./reportWebVitals";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
