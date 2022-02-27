@@ -49,10 +49,11 @@ const ExchangeDetails = () => {
     facebook_url,
     image,
     name,
+    reddit_url,
     trust_score_rank,
     twitter_handle,
     url,
-    reddit_url,
+    year_established,
   } = exchange || {};
 
   const socialMediaLinks = [
@@ -63,6 +64,13 @@ const ExchangeDetails = () => {
       icon: <Twitter />,
     },
     { id: "3", href: reddit_url, icon: <Reddit /> },
+  ];
+
+  const infoItems = [
+    { label: "Country", value: country },
+    { label: "Trust rank", value: trust_score_rank },
+    { label: "Year of establishment", value: year_established },
+    { label: "Description", value: description || "-" },
   ];
 
   return (
@@ -93,22 +101,12 @@ const ExchangeDetails = () => {
           </SocialMediaLinks>
         </LogoContainer>
         <div>
-          <Item>
-            <Label>Country</Label>
-            <div>{country}</div>
-          </Item>
-          <Item>
-            <Label>Trust rank</Label>
-            <div>{trust_score_rank}</div>
-          </Item>
-          <Item>
-            <Label>Year of establishment</Label>
-            <div>2017</div>
-          </Item>
-          <Item>
-            <Label>Description</Label>
-            <div>{description || "-"}</div>
-          </Item>
+          {infoItems.map(({ label, value }) => (
+            <Item key={label}>
+              <Label>{label}</Label>
+              <div>{value}</div>
+            </Item>
+          ))}
         </div>
       </Info>
     </div>
