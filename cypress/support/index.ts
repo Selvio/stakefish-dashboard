@@ -16,5 +16,17 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+declare global {
+  // eslint-disable-next-line no-unused-vars
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.dataCy('greeting')
+       */
+      // eslint-disable-next-line no-unused-vars
+      getExchanges({ emptyResponse }?: { emptyResponse: boolean }): Chainable<Element>;
+      getExchangeDetails(): Chainable<Element>;
+    }
+  }
+}
