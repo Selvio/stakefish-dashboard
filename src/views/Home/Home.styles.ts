@@ -85,3 +85,10 @@ export const StyledLink = styled(Link)`
     background-color: ${({ theme }) => theme.colors.shark};
   }
 `;
+
+export const SpinnerContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: ${rem("350px")};
+  justify-content: center;
+`;

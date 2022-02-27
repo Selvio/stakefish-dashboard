@@ -26,12 +26,12 @@ export const Title = styled.h1`
 `;
 
 export const Info = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   max-width: ${rem("600px")};
 
   @media ${({ theme }) => theme.mediaQueries.large} {
-    flex-direction: row;
+    column-gap: ${rem("48px")};
+    grid-template-columns: 80px 1fr;
   }
 `;
 
@@ -39,11 +39,11 @@ export const LogoContainer = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
+  width: ${rem("80px")};
   margin-bottom: ${rem("24px")};
 
   @media ${({ theme }) => theme.mediaQueries.large} {
     margin-bottom: 0;
-    margin-right: ${rem("48px")};
     align-items: center;
   }
 `;
@@ -84,4 +84,11 @@ export const SocialMediaLink = styled.a`
   &:not(:last-child) {
     margin-right: ${rem("12px")};
   }
+`;
+
+export const SpinnerContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: ${rem("350px")};
+  justify-content: center;
 `;

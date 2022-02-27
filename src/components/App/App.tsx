@@ -1,13 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ExchangeDetails from "../ExchangeDetails";
-import Home from "../Home";
+import Layout from "../Layout";
+
+import ExchangeDetails from "../../views/ExchangeDetails";
+import Home from "../../views/Home";
 
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="exchanges/:exchangeId" element={<ExchangeDetails />} />
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="exchanges/:exchangeId" element={<ExchangeDetails />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );
