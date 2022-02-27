@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
 
 import { StyledSpinner } from "./Spinner.styles";
 
-const Spinner = () => (
+const Spinner: FC = () => (
   <StyledSpinner data-testid="spinner">Loading...</StyledSpinner>
 );
 

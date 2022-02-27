@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore"
+    "lint": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore",
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build http://stakefish-dashboard.surge.sh"
   },
   "eslintConfig": {
     "extends": [

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useQuery } from "react-query";
 
 import { getExchanges } from "../../api/exchanges";
@@ -17,7 +18,7 @@ import {
   Title,
 } from "./Home.styles";
 
-const Home = () => {
+const Home: FC = () => {
   const {
     data: exchanges,
     error,
