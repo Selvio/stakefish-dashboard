@@ -17,8 +17,8 @@ const useHome = () => {
 
   const [scrollIndicatorsState, setScrollIndicatorsState] =
     useState<ScrollIndicators>({
-      left: true,
-      right: false,
+      left: false,
+      right: true,
     });
 
   const containerRef = useRef<HTMLDivElement | null>(null);

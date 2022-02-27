@@ -3,6 +3,28 @@ name: Quality check
 on: [push]
 
 jobs:
+  e2e-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Packages installation
+        run: npm install
+
+      - name: e2e tests
+        run: npm run test:e2e
+
+      - name: Archive cypress artifact on fail
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifact
+          path: cypress/**
+
   basic-check:
     runs-on: ubuntu-latest
 
