@@ -25,9 +25,13 @@ const ExchangeDetails = () => {
     data: exchange,
     error,
     isLoading,
-  } = useQuery(`exchange-details-${exchangeId}`, () => getExchange(exchangeId), {
-    enabled: !!exchangeId,
-  });
+  } = useQuery(
+    `exchange-details-${exchangeId}`,
+    () => getExchange(exchangeId),
+    {
+      enabled: !!exchangeId,
+    }
+  );
 
   if (error) return <div>An error has occurred 😵</div>;
 

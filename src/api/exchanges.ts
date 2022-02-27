@@ -1,6 +1,6 @@
 import { Exchange, ExchangeDetails } from "./exchange.types";
 
-const BASE_URL = "https://api.coingecko.com/api/v3";
+export const BASE_URL = "https://api.coingecko.com/api/v3";
 
 export const getExchanges = (limit = 10): Promise<Exchange[]> =>
   fetch(`${BASE_URL}/exchanges?per_page=${limit}`).then((response) =>
