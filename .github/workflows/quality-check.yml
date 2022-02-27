@@ -1,0 +1,25 @@
+name: Quality check
+
+on: [push]
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Packages installation
+        run: npm install
+
+      - name: Linting
+        run: npm run lint
+
+      - name: Unit / integration tests
+        run: npm run test
+
+      - name: Checking build
+        run: npm run build
