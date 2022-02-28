@@ -25,7 +25,7 @@ declare global {
        * @example cy.dataCy('greeting')
        */
       // eslint-disable-next-line no-unused-vars
-      getExchanges({ emptyResponse }?: { emptyResponse: boolean }): Chainable<Element>;
+      getExchanges(options?: { emptyResponse: boolean }): Chainable<Element>;
       getExchangeDetails(): Chainable<Element>;
     }
   }
